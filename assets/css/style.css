@@ -1,0 +1,93 @@
+/* 全局默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 确保元素宽度包含边框和内边距 */
+  }
+  
+  body {
+    font-family: Arial, sans-serif; /* 设置默认字体 */
+    line-height: 1.6; /* 文字行高，增加可读性 */
+    color: #333; /* 默认文字颜色为深灰色 */
+    padding: 20px; /* 页面四周留白 */
+    max-width: 800px; /* 内容最大宽度 */
+    margin: 0 auto; /* 居中显示 */
+  }
+  
+  /* 导航栏样式 */
+  nav {
+    background-color: #f8f9fa; /* 浅灰色背景 */
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  nav a {
+    color: #333;
+    text-decoration: none; /* 去掉链接下划线 */
+    margin-right: 15px;
+  }
+  
+  nav a:hover {
+    color: #007bff; /* 鼠标悬停时变为蓝色 */
+  }
+
+  /* 简历头像 */
+.resume .avatar {
+    width: 150px; /* 设置头像宽度 */
+    height: 150px; /* 设置头像高度 */
+    border-radius: 50%; /* 圆形头像 */
+    display: block; /* 让图片居中 */
+    margin: 20px auto; /* 上下间距 20px，左右自动居中 */
+    border: 3px solid #ddd; /* 添加浅灰色边框 */
+  }
+  
+  /* 简历标题 */
+  .resume h1 {
+    text-align: center; /* 标题居中 */
+    color: #2c3e50; /* 深蓝色 */
+    margin-bottom: 20px;
+  }
+  
+  /* 教育背景、工作经历等区块 */
+  .resume section {
+    margin-bottom: 30px; /* 区块之间的间距 */
+    padding: 15px;
+    background-color: #f8f9fa; /* 浅灰色背景 */
+    border-radius: 8px; /* 圆角边框 */
+  }
+  
+  .resume h2 {
+    color: #007bff; /* 蓝色副标题 */
+    margin-bottom: 10px;
+  }
+  
+  /* 段落文字 */
+  .resume p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  /* 博客列表页 */
+.blog-list article {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #eee; /* 浅灰色边框 */
+    border-radius: 8px;
+  }
+  
+  .blog-list .date {
+    color: #666; /* 灰色日期 */
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* 单篇博客页 */
+  .blog-post h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .blog-post .content {
+    font-size: 16px;
+    line-height: 1.8; /* 更大的行高方便阅读 */
+  }
