@@ -1,57 +1,93 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<!-- 声明文档类型为HTML5 -->
+
+<html lang="en">
+<!-- HTML文档根元素，设置页面语言为英语 -->
+
 <head>
   <meta charset="UTF-8">
+  <!-- 设置字符编码为UTF-8，支持多语言字符显示 -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <title>Ivan/Cheng Qian</title>
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-    }
-  </style>
+  <!-- 让页面在移动端自适应宽度和缩放比例，提升移动端体验 -->
+
+  <meta name="description" content="Personal website of Ivan Tsian - Developer and Designer">
+  <!-- 设置页面描述，有利于SEO和搜索引擎收录 -->
+
+  <title>Ivan Tsian</title>
+  <!-- 设置浏览器标签页标题 -->
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- 引入本地CSS样式文件，定义页面样式 -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- 优化Google Fonts加载速度，提前建立连接 -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- 引入Google Fonts的Inter字体，权重300/400/600 -->
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- 引入AOS（Animate On Scroll）动画库的JS文件 -->
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- 引入AOS动画库的CSS文件 -->
+
+  <link rel="icon" type="image/png" href="assets/img/logo_withoutTiger.png">
+  <!-- 设置浏览器标签页图标（favicon） -->
 </head>
 
 <body>
-    <nav>
-        <a href="/">Start</a>
-        <a href="/about.html">About Me</a>
-        <a href="/projects.html">Projects</a>
-        <a href="/skills.html">Skills</a>
-        <a href="/resume.html">Resume</a>
-        <a href="/blogs/">Blogs</a>
-        <!-- 后续添加语言切换按钮 -->
-    </nav>
-    
-    <div class="resume">
-        <img src="/assets/img/avatar.jpg" alt="头像" class="avatar">
-        <h1>Ivan Tsian</h1>
-        <section class="about">
-            <h2>关于我</h2>
-            <p>这里是关于我的介绍。</p>
-        </section>
-        <section class="projects">
-            <h2>项目</h2>
-            <p>这里是我参与的项目介绍。</p>
-        </section>
-        <section class="skills">
-            <h2>技能</h2>
-            <p>这里是我的技能介绍。</p>
-        </section>
-        <section class="education">
-            <h2>教育程度</h2>
-            <p>这里是教育介绍</p>
-        </section>
-    </div>
+  <header>
+    <nav class="navbar">
+      <div class="logo"> 
+        <img src="assets/img/logo_withoutTiger.png" alt="Ivan Tsian Logo" style="height:40px; width:40px;">
+      </div>
+      <!-- 网站Logo -->
 
-    <footer>
-        <p>© 2025 Ivan/Cheng Qian. All Rights Reserved.</p>
-        <p>Contact: <a href="mailto:ivantsian@icloud.com">ivantsian@icloud.com</a></p>
-        <p>Follow Me: 
-            <a href="https://github.com/ivantsian">GitHub</a> | 
-            <a href="https://linkedin.com/in/ivantsian">LinkedIn</a>
-        </p>
-    </footer>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="blogs/index.html">Blog</a></li>
+      </ul>
+      <!-- 导航栏，包含关于、简历、博客的链接 -->
+    </nav>
+  </header>
+
+  <main class="hero" data-aos="fade-up">
+    <!-- 主要内容区域，应用AOS动画效果（向上淡入） -->
+    <img src="assets/img/avatar.jpg" alt="Ivan Tsian avatar" class="avatar">
+    <!-- 头像图片 -->
+
+    <h1>Hello, I'm Ivan/Cheng</h1>
+    <!-- 主标题，个人介绍 -->
+
+    <p>A Fullstack developer with a passion for minimal, functional, and elegant design.</p>
+    <!-- 简短自我描述 -->
+
+    <a class="btn" href="resume.html">View Resume</a>
+    <!-- 按钮，跳转到简历页面 -->
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ivan Tsian. All rights reserved.</p>
+    <!-- 页脚版权信息 -->
+    <section class="contact" data-aos="fade-up">
+        <h2>Get in touch</h2>
+        <ul class="contact-links">
+        <li><a href="https://github.com/IvanTsian" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/cheng-ivan-qian/" target="_blank">LinkedIn</a></li>
+        <li><a href="mailto:ivantsian@icloud.com">Email</a></li>
+        </ul>
+    </section>
+  </footer>
+
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+    // 初始化AOS动画库，设置动画持续时间为1000ms，每个元素只执行一次动画
+  </script>
 </body>
 </html>

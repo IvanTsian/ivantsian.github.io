@@ -1,93 +1,141 @@
-/* 全局默认样式 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* 确保元素宽度包含边框和内边距 */
-  }
-  
-  body {
-    font-family: Arial, sans-serif; /* 设置默认字体 */
-    line-height: 1.6; /* 文字行高，增加可读性 */
-    color: #333; /* 默认文字颜色为深灰色 */
-    padding: 20px; /* 页面四周留白 */
-    max-width: 800px; /* 内容最大宽度 */
-    margin: 0 auto; /* 居中显示 */
-  }
-  
-  /* 导航栏样式 */
-  nav {
-    background-color: #f8f9fa; /* 浅灰色背景 */
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-  
-  nav a {
-    color: #333;
-    text-decoration: none; /* 去掉链接下划线 */
-    margin-right: 15px;
-  }
-  
-  nav a:hover {
-    color: #007bff; /* 鼠标悬停时变为蓝色 */
-  }
+/* style.css - 极简苹果风尝试 */
 
-  /* 简历头像 */
-.resume .avatar {
-    width: 150px; /* 设置头像宽度 */
-    height: 150px; /* 设置头像高度 */
-    border-radius: 50%; /* 圆形头像 */
-    display: block; /* 让图片居中 */
-    margin: 20px auto; /* 上下间距 20px，左右自动居中 */
-    border: 3px solid #ddd; /* 添加浅灰色边框 */
-  }
-  
-  /* 简历标题 */
-  .resume h1 {
-    text-align: center; /* 标题居中 */
-    color: #2c3e50; /* 深蓝色 */
-    margin-bottom: 20px;
-  }
-  
-  /* 教育背景、工作经历等区块 */
-  .resume section {
-    margin-bottom: 30px; /* 区块之间的间距 */
-    padding: 15px;
-    background-color: #f8f9fa; /* 浅灰色背景 */
-    border-radius: 8px; /* 圆角边框 */
-  }
-  
-  .resume h2 {
-    color: #007bff; /* 蓝色副标题 */
-    margin-bottom: 10px;
-  }
-  
-  /* 段落文字 */
-  .resume p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
 
-  /* 博客列表页 */
-.blog-list article {
-    margin-bottom: 30px;
-    padding: 20px;
-    border: 1px solid #eee; /* 浅灰色边框 */
-    border-radius: 8px;
+header {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eee;
+  z-index: 999;
+}
+
+.navbar {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 400;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-links li a:hover {
+  color: #555;
+}
+
+.hero {
+  max-width: 720px;
+  margin: 12vh auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #444;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #f0f0f0;
+  color: #1a1a1a;
+  border: none;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #e0e0e0;
+}
+
+.avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.contact {
+  text-align: center;
+  margin-top: 6rem;
+  margin-bottom: 4rem;
+}
+
+.contact h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.1rem;
+}
+
+.contact-links a {
+  text-decoration: none;
+  color: #1a1a1a;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.contact-links a:hover {
+  border-color: #1a1a1a;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #999;
+  border-top: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.25rem;
   }
-  
-  .blog-list .date {
-    color: #666; /* 灰色日期 */
-    font-size: 14px;
-    margin-bottom: 10px;
+  .nav-links {
+    gap: 1rem;
   }
-  
-  /* 单篇博客页 */
-  .blog-post h1 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-  }
-  
-  .blog-post .content {
-    font-size: 16px;
-    line-height: 1.8; /* 更大的行高方便阅读 */
-  }
+}
