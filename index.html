@@ -69,8 +69,29 @@
     <!-- 按钮，跳转到简历页面 -->
   </main>
 
+  <section class="projects" id="projects" data-aos="fade-up">
+  <h2>Projects</h2>
+  <div class="project-grid">
+    <div class="project-card">
+    <button class="show-more-btn">Show more</button>
+      <h3>Todo App</h3>
+      <p>A fullstack todo list app built with Next.js, Express, PostgreSQL.</p>
+      <span class="tech-tags">Next.js / Express / PostgreSQL</span><br>
+      <a href="https://github.com/IvanTsian/todo-app" target="_blank">View on GitHub →</a>
+    </div>
+    <div class="project-card">
+    <button class="show-more-btn">Show more</button>
+      <h3>Maze Runner</h3>
+      <p>Simulated autonomous robot navigation in Webots.</p>
+      <span class="tech-tags">Python / Webots</span><br>
+      <a href="https://github.com/IvanTsian/maze-runner" target="_blank">View on GitHub →</a>
+    </div>
+    <!-- 可继续添加更多项目卡片 -->
+  </div>
+</section>
+
   <footer>
-    <p>&copy; 2025 Ivan Tsian. All rights reserved.</p>
+    <p>&copy; 2024-2025 Ivan Tsian. All rights reserved.</p>
     <!-- 页脚版权信息 -->
     <section class="contact" data-aos="fade-up">
         <h2>Get in touch</h2>
@@ -81,6 +102,33 @@
         </ul>
     </section>
   </footer>
+<!--实现卡片悬浮动画效果-->
+<script>
+  const cards = document.querySelectorAll('.project-card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const deltaX = e.clientX - centerX;
+      const deltaY = e.clientY - centerY;
+
+      const percentX = deltaX / (rect.width / 2);
+      const percentY = deltaY / (rect.height / 2);
+
+      const rotateX = -percentY * 10; // 上下倾斜
+      const rotateY = percentX * 10;  // 左右倾斜
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+  });
+</script>
 
   <script>
     AOS.init({
