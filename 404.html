@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 - Page Not Found</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+
+    .notfound-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+    a.btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #f0f0f0;
+      color: #1a1a1a;
+      border: none;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 6px;
+      transition: background-color 0.2s ease-in-out;
+    }
+    a.btn:hover {
+      background-color: #e0e0e0;
+    }
+    .btn .arrow {
+      display: inline-block;
+      transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    }
+    .btn:hover .arrow {
+      transform: translateX(-8px);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"> 
+        <a href="index.html">
+            <!-- 网站Logo，点击后返回首页 -->
+        <img src="assets/img/logo_withoutTiger.png" alt="Ivan Tsian Logo" style="height:40px; width:40px;">
+        </a>
+      </div>
+      <!-- 网站Logo -->
+
+      <ul class="nav-links">
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="404.html">Blog</a></li>
+      </ul>
+      <!-- 导航栏，包含关于、简历、博客的链接 -->
+    </nav>
+  </header>
+
+  <div class="notfound-content">
+    <h1>404</h1>
+    <p>This page is still under construction.<br>It'll be ready soon.</p>
+    <a class="btn" href="/"><span class="arrow">←</span> Back to Start</a>
+  </div>
+
+</body>
+</html>
