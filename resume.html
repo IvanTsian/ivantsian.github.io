@@ -1,35 +1,255 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <title>橙子的简历/Resume</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ivan/Cheng Qian - Resume</title>
+  <!-- 引入全站样式 -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- 引入Google字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- 设置favicon -->
+  <link rel="icon" type="image/png" href="assets/img/logo_withoutTiger.png">
+  <!-- 引入AOS动画库 -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    /* 简历主容器，居中显示 */
+    .resume-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    /* 头像区整体居中 */
+    .resume-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .resume-header .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .resume-header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin: 0.5rem 0 0.2rem 0;
+    }
+    .resume-header p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 1.2rem;
+    }
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-size: 1rem;
+      color: #1a1a1a;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .contact-info a {
+      color: #1a1a1a;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+      font-family: inherit;
+    }
+    .contact-info a:hover {
+      border-color: #1a1a1a;
+    }
+    /* 分割线 */
+    .section-divider {
+      border: none;
+      border-top: 1.5px solid #eee;
+      margin: 2.5rem 0 2.5rem 0;
+    }
+    /* 卡片样式 */
+    .resume-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      margin-bottom: 2.5rem;
+      padding: 2.2rem 2.2rem 1.8rem 2.2rem;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      min-height: 160px;
+      overflow: hidden;
+    }
+    /* 卡片左侧内容 */
+    .resume-card-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .resume-card-date {
+      font-size: 1.1rem;
+      color: #333;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .resume-card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      margin-top: 0;
+      word-break: break-word;
+    }
+    .resume-card-subtitle {
+      color: #888;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      word-break: break-word;
+    }
+    .resume-card-desc {
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 0;
+      word-break: break-word;
+    }
+    /* 卡片右上角logo */
+    .resume-card-logo {
+      position: absolute;
+      top: 1.5rem;
+      right: 6rem;
+      width: 72px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .resume-card-logo img {
+      max-width: 180px;
+      max-height: 180px;
+      object-fit: contain;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .resume-header .avatar {
+        width: 80px;
+        height: 80px;
+      }
+      .resume-card {
+        padding: 1.2rem 1rem 1rem 1rem;
+        flex-direction: column;
+      }
+      .resume-card-logo {
+        position: static;
+        margin: 0 auto 1rem auto;
+        width: 48px;
+        height: 48px;
+      }
+      .resume-card-logo img {
+        max-width: 40px;
+        max-height: 40px;
+      }
+      .resume-card-content {
+        margin-left: 0;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <nav>
-        <a href="/">Start</a>
-        <a href="/resume.html">Resume</a>
-        <a href="/blogs/">Blogs</a>
-        <!-- 后续添加语言切换按钮 -->
+  <!-- 顶部导航栏 -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/img/logo_withoutTiger.png" alt="Ivan Tsian Logo" style="height:40px; width:40px;">
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="404.html">Blog</a></li>
+      </ul>
     </nav>
-    
-  
-  <div class="resume">
-    <img src="/assets/img/avatar.jpg" alt="头像" class="avatar">
-    <h1>Ivan Tsian</h1>
+  </header>
 
-    <section class="education">
-      <h2>教育背景</h2>
-      <p>...</p>
-
-    </section>
-
-
-    <section class="skills">
-        <h2>技能</h2>
-        <p>HTML/CSS Javascript Python</p>
-    </section>
-    <!-- 添加更多模块（工作经历、技能等） -->
+  <!-- 简历主体内容 -->
+  <div class="resume-container">
+    <!-- 个人头像、姓名、slogan、联系方式 -->
+    <div class="resume-header" data-aos="fade-up">
+      <img src="assets/img/avatar.jpg" alt="Ivan Tsian avatar" class="avatar">
+      <h1>Ivan/Cheng Qian</h1>
+      <p>Master’s student in Computer Science at Humboldt University of Berlin with a focus on Fullstack/iOS development, Process Science, and applied AR technologies.</p>
+      <div class="contact-info">
+        <a href="mailto:ivantsian@icloud.com">ivantsian@icloud.com</a>
+        <a href="https://github.com/IvanTsian" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/cheng-ivan-qian" target="_blank">LinkedIn</a>
+        <a href="tel:+4917662240749">+49 17662240749</a>
+      </div>
+    </div>
+    <!-- 分割线，带AOS动画 -->
+    <div data-aos="fade-up">
+      <hr class="section-divider">
+    </div>
+    <!-- 教育经历卡片 -->
+    <div class="resume-card" data-aos="fade-up">
+      <div class="resume-card-logo">
+        <img src="assets/img/HU_Siegel-Kombi_Schwarz.png" alt="Humboldt University Berlin">
+      </div>
+      <div class="resume-card-content">
+        <div class="resume-card-date">2023 - 2026</div>
+        <div class="resume-card-title">M.Sc. Computer Science</div>
+        <div class="resume-card-subtitle">Humboldt University of Berlin</div>
+        <div class="resume-card-desc">
+          Currently pursuing Master's degree with focus on Human-Computer Interaction and Software Engineering.
+        </div>
+      </div>
+    </div>
+    <div class="resume-card" data-aos="fade-up">
+      <div class="resume-card-logo">
+        <img src="assets/img/uzh-logo-black.png" alt="University of Zurich">
+      </div>
+      <div class="resume-card-content">
+        <div class="resume-card-date">2024/25</div>
+        <div class="resume-card-title">Exchange Semester</div>
+        <div class="resume-card-subtitle">University of Zurich</div>
+        <div class="resume-card-desc">
+          Exchange program focusing on advanced computer graphics and machine learning applications.
+        </div>
+      </div>
+    </div>
+    <div class="resume-card" data-aos="fade-up">
+      <div class="resume-card-logo">
+        <img src="assets/img/The_Logo_of_GDUT.png" alt="Guangdong University of Technology">
+      </div>
+      <div class="resume-card-content">
+        <div class="resume-card-date">2016 - 2020</div>
+        <div class="resume-card-title">B.Sc. Computer Science</div>
+        <div class="resume-card-subtitle">Guangdong University of Technology</div>
+        <div class="resume-card-desc">
+          Bachelor's degree with specialization in software development and data structures. 
+          Active in programming competitions and tech communities.
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- 页脚 -->
+  <footer>
+    <p>&copy; 2024-2025 Ivan Tsian. All rights reserved.</p>
+    <section class="contact" data-aos="fade-up">
+      <h2>Get in touch</h2>
+      <ul class="contact-links">
+        <li><a href="https://github.com/IvanTsian" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/cheng-ivan-qian/" target="_blank">LinkedIn</a></li>
+        <li><a href="mailto:ivantsian@icloud.com">Email</a></li>
+      </ul>
+    </section>
+  </footer>
+  <!-- 初始化AOS动画库 -->
+  <script>
+    AOS.init({
+      once: true
+    });
+  </script>
 </body>
 </html>
