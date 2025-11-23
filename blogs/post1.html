@@ -1,23 +1,93 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一篇博客标题 - Ivan Tsian</title>
   <link rel="stylesheet" href="/assets/css/style.css">
-  <title>第一篇博客</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/img/logo_withoutTiger.png">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    .blog-post-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .blog-post-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .blog-post-date {
+      color: #888;
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .blog-post-content {
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+  </style>
 </head>
 <body>
-  <nav>
-    <a href="/">Start</a>
-    <a href="/resume.html">Resume</a>
-    <a href="/blogs/">Blogs</a>
-    <!-- 后续添加语言切换按钮 -->
-  </nav>
-  
-  <article class="blog-post">
-    <h1>第一篇博客标题</h1>
-    <p class="date">2024年1月1日</p>
-    <div class="content">
-      <p>这里是博客正文...</p>
-    </div>
-  </article>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/index.html">
+          <img src="/assets/img/logo_withoutTiger.png" alt="Ivan Tsian Logo" style="height:40px; width:40px;">
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/resume.html">Resume</a></li>
+        <li><a href="/blogs/">Blogs</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="blog-post-container" data-aos="fade-up">
+    <h1 class="blog-post-title"><br>BQ</h1>
+    <div class="blog-post-da
+    te">2025年6月24日</div>
+    <div class="blog-post-content">
+  <h2>常见BQ问题</h2>
+  <ol>
+    <li>请介绍一下你自己。</li>
+    <li>你遇到过最大的挑战是什么？你是如何应对的？</li>
+    <li>你如何处理团队冲突？</li>
+  </ol>
+  <hr>
+  <h3>我的答题思路</h3>
+  <ul>
+    <li>STAR法则（Situation, Task, Action, Result）</li>
+    <li>真实具体，突出个人贡献</li>
+  </ul>
+</div>
+  </div>
+  <footer>
+    <p>&copy; 2024-2025 Ivan/Cheng Qian. All rights reserved.</p>
+    <section class="contact" data-aos="fade-up">
+      <h2>Get in touch</h2>
+      <ul class="contact-links">
+        <li><a href="https://github.com/IvanTsian" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/cheng-ivan-qian/" target="_blank">LinkedIn</a></li>
+        <li><a href="mailto:contact.ivantsian@icloud.com">Email</a></li>
+      </ul>
+    </section>
+  </footer>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
 </body>
 </html>

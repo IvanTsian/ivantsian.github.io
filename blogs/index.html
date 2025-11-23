@@ -1,32 +1,109 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>博客列表</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body, .navbar, .nav-links, .blog-card, .blog-card a, .blog-card .show-more-btn {
+      font-family: 'Inter', sans-serif;
+    }
+    .blog-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .blog-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      margin-bottom: 2.5rem;
+      padding: 2.2rem 2.2rem 1.8rem 2.2rem;
+      position: relative;
+      transition: box-shadow 0.3s, transform 0.3s;
+      overflow: hidden;
+    }
+    .blog-card .date {
+      color: #888;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .blog-card .show-more-btn {
+      margin-top: 1.2rem;
+      padding: 0.5rem 1.2rem;
+      background: #f0f0f0;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      color: #1a1a1a;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .blog-card .show-more-btn:hover {
+      background: #e0e0e0;
+    }
+    .blog-list h1 {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+  </style>
 </head>
 <body>
-  <nav>
-    <a href="/">Start</a>
-    <a href="/resume.html">Resume</a>
-    <a href="/blogs/">Blogs</a>
-    <!-- 后续添加语言切换按钮 -->
-  </nav>
+  <!-- 统一导航栏 -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/index.html">
+          <img src="/assets/img/logo_withoutTiger.png" alt="Ivan Tsian Logo" style="height:40px; width:40px;">
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/resume.html">Resume</a></li>
+        <li><a href="/blogs/">Blogs</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="blog-list">
+  <div class="blog-container blog-list">
     <h1>所有文章</h1>
-    
-    <!-- 单篇文章链接 -->
-    <article>
-      <h2><a href="/blogs/post1.html">第一篇博客标题</a></h2>
-      <p class="date">2024年1月1日</p>
-      <p>文章摘要...</p>
-    </article>
-
-    <article>
-      <h2><a href="/blogs/post2.html">第二篇博客标题</a></h2>
-      <p class="date">2024年1月15日</p>
-      <p>文章摘要...</p>
-    </article>
+    <!-- 博客卡片1 -->
+    <div class="blog-card" data-aos="fade-up">
+      <h2>Behaviour Questions</h2>
+      <p class="date">2025年11月13日</p>
+      <p>BQ(Behaviour Questions is one of the most crucial parts in a job interview. I collected the ones that often show up in this article.)</p>
+      <a class="show-more-btn" href="/blogs/post1.html">Read more</a>
+    </div>
+    <!-- 博客卡片2 -->
+    <div class="blog-card" data-aos="fade-up">
+      <h2>计算机网络 Computer Network</h2>
+      <p class="date">2025年11月23日</p>
+      <p>计算机网络，是互联网面试八股文的重要组成部分需要认真学习</p>
+      <a class="show-more-btn" href="/blogs/post2.html">Read more</a>
+    </div>
   </div>
+
+  <footer>
+    <p>&copy; 2024-2025 Ivan/Cheng Qian. All rights reserved.</p>
+    <section class="contact" data-aos="fade-up">
+      <h2>Get in touch</h2>
+      <ul class="contact-links">
+        <li><a href="https://github.com/IvanTsian" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/cheng-ivan-qian/" target="_blank">LinkedIn</a></li>
+        <li><a href="mailto:ivantsian@icloud.com">Email</a></li>
+      </ul>
+    </section>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
 </body>
 </html>
