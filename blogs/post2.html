@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第二篇博客标题 - Ivan Tsian</title>
+  <title>Computer Network - Ivan Tsian</title>
   <link rel="stylesheet" href="/assets/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/img/logo_withoutTiger.png">
@@ -37,6 +37,21 @@
       line-height: 1.8;
       margin-bottom: 2.5rem;
     }
+    .blog-image { /* 这里规定了图片显示的方式 */
+      width: 100%;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    pre code {
+      display: block;
+      padding: 1rem;
+      background: #f7f7f7;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
@@ -54,14 +69,15 @@
     </nav>
   </header>
   <div class="blog-post-container" data-aos="fade-up">
-    <h1 class="blog-post-title">第二篇博客标题</h1>
-    <div class="blog-post-date">2024年1月15日</div>
+    <h1 class="blog-post-title">Computer Network</h1>
+    <div class="blog-post-date">2025年11月23日</div>
     <div class="blog-post-content">
-      <p>这里是第二篇博客的完整内容。你可以在这里展示所有正文、图片、代码块等。</p>
+      <p><div class="blog-post-content" id="markdown-content"></div></p> 
+      /* 这里将空容器替换为原来的文章，让html自动渲染md文件，这样就只需要在md里面写东西，不需要在这里写一大段了 */
     </div>
   </div>
   <footer>
-    <p>&copy; 2024-2025 Ivan/Cheng Qian. All rights reserved.</p>
+    <p>&copy; 2024-2026 Ivan/Cheng Qian. All rights reserved.</p>
     <section class="contact" data-aos="fade-up">
       <h2>Get in touch</h2>
       <ul class="contact-links">
@@ -76,6 +92,14 @@
       duration: 1000,
       once: true
     });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    fetch('/blogs/post2.md')
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById('markdown-content').innerHTML = marked.parse(text);
+      });
   </script>
 </body>
 </html>
