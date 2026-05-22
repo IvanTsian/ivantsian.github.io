@@ -7,98 +7,161 @@
   <!-- 引入全站样式 -->
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- 引入Google字体 -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet">
   <!-- 设置favicon -->
   <link rel="icon" type="image/png" href="assets/img/logo_withoutTiger.png">
   <!-- 引入AOS动画库 -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* 文字居中 */
-    .center-box {
-      text-align: center;
-    }
-    /* 简历主容器，居中显示 */
     .resume-container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
     }
-    /* 头像区整体居中 */
+
     .resume-header {
-      text-align: center;
-      margin-bottom: 2.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 3rem;
     }
-    .resume-header .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+    .resume-header-content {
+      min-width: 0;
     }
+
     .resume-header h1 {
-      font-size: 2.2rem;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 1;
       font-weight: 700;
-      margin: 0.5rem 0 0.2rem 0;
+      margin: 0 0 1.25rem;
     }
-    .resume-header p {
-      font-size: 1.1rem;
-      color: #444;
-      margin-bottom: 1.2rem;
+
+    .resume-summary {
+      font-size: 1.05rem;
+      color: #333;
+      line-height: 1.75;
+      margin: 0 0 1.5rem;
+      max-width: 650px;
     }
+
+    .resume-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: block;
+    }
+
+    .resume-photo:hover {
+      transform: scale(1.035);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+    }
+
     .contact-info {
       display: flex;
-      justify-content: center;
-      gap: 2rem;
+      gap: 1.1rem;
       font-size: 1rem;
       color: #1a1a1a;
       font-family: 'Inter', sans-serif;
-      margin-bottom: 0.5rem;
       flex-wrap: wrap;
     }
+
     .contact-info a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.55rem;
+      padding: 0 1.1rem;
+      background: #fff;
       color: #1a1a1a;
       text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
       font-family: inherit;
     }
+
     .contact-info a:hover {
-      border-color: #1a1a1a;
+      border-color: #ddd;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      transform: scale(1.018);
     }
-    /* 分割线 */
+
     .section-divider {
       border: none;
       border-top: 1.5px solid #eee;
-      margin: 2.5rem 0 2.5rem 0;
+      margin: 2.5rem 0;
     }
-    /* 卡片样式 */
+
+    .resume-section {
+      margin-bottom: 3rem;
+    }
+
+    .resume-section h2 {
+      font-size: 1.5rem;
+      margin: 0 0 1.2rem;
+    }
+
     .resume-card {
       background: #fff;
-      border-radius: 14px;
+      border-radius: 8px;
       box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.25rem;
       padding: 2.2rem 2.2rem 1.8rem 2.2rem;
       position: relative;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      min-height: 190px;
       overflow: hidden;
     }
-    /* 卡片左侧内容 */
+
     .resume-card-content {
-      flex: 1;
       min-width: 0;
+    }
+
+    .resume-card.has-logo .resume-card-content {
       padding-right: 11rem;
     }
-    .resume-card-date {
-      font-size: 1.1rem;
-      color: #333;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
+
+    .resume-card.has-logo {
+      min-height: 220px;
     }
+
+    .resume-card.has-logo .resume-card-date {
+      position: absolute;
+      top: 2.2rem;
+      right: 2.2rem;
+      width: max-content;
+      max-width: calc(100% - 4.4rem);
+      text-align: right;
+      white-space: nowrap;
+      z-index: 3;
+    }
+
+    .resume-card.has-logo .resume-card-logo {
+      top: 4.2rem;
+    }
+
+    .resume-card-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: #666;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .resume-card-date {
+      color: #333;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
     .resume-card-title {
       font-size: 1.3rem;
       font-weight: 700;
@@ -106,19 +169,32 @@
       margin-top: 0;
       word-break: break-word;
     }
+
     .resume-card-subtitle {
       color: #888;
       margin-bottom: 0.5rem;
       font-size: 1.05rem;
       word-break: break-word;
     }
+
     .resume-card-desc {
       color: #444;
       line-height: 1.6;
       margin-bottom: 0;
       word-break: break-word;
     }
-    /* 卡片右上角logo */
+
+    .resume-card-desc ul,
+    .resume-skill-list {
+      margin: 0.8rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    .resume-card-desc li,
+    .resume-skill-list li {
+      margin-bottom: 0.45rem;
+    }
+
     .resume-card-logo {
       position: absolute;
       top: 1.5rem;
@@ -130,6 +206,7 @@
       justify-content: center;
       z-index: 2;
     }
+
     .resume-card-logo img {
       width: 100%;
       height: 100%;
@@ -138,28 +215,61 @@
       object-fit: contain;
       display: block;
     }
-    @media (max-width: 600px) {
-      .resume-header .avatar {
-        width: 80px;
-        height: 80px;
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 760px) {
+      .resume-container {
+        padding: 2rem 1rem 3rem;
       }
+
+      .resume-header {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+      }
+
+      .resume-photo {
+        width: min(100%, 280px);
+        justify-self: start;
+      }
+
       .resume-card {
         padding: 1.2rem 1rem 1rem 1rem;
-        flex-direction: column;
       }
+
+      .resume-card.has-logo {
+        min-height: 0;
+      }
+
+      .resume-card.has-logo .resume-card-content {
+        padding-right: 0;
+      }
+
+      .resume-card.has-logo .resume-card-date {
+        position: static;
+        width: auto;
+        text-align: left;
+        display: block;
+        margin-bottom: 0.35rem;
+      }
+
       .resume-card-logo {
         position: static;
-        margin: 0 auto 1rem auto;
+        margin: 0 0 1rem;
         width: 96px;
         height: 96px;
       }
-      .resume-card-logo img {
-        width: 100%;
-        height: 100%;
+
+      .resume-card-meta {
+        display: block;
       }
-      .resume-card-content {
-        margin-left: 0;
-        padding-right: 0;
+
+      .skills-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -182,138 +292,244 @@
 
   <!-- 简历主体内容 -->
   <div class="resume-container">
-    <!-- 个人头像、姓名、slogan、联系方式 -->
     <div class="resume-header" data-aos="fade-up">
-      <img src="assets/img/avatar.jpg" alt="Ivan Tsian avatar" class="avatar">
-      <h1>Ivan/Cheng Qian</h1>
-      <p>Master’s student in Computer Science at Humboldt University of Berlin with a focus on Fullstack/iOS development, Process Science, and applied AR technologies. Capable of IT Consulting, Client Associate under international circumstances.</p>
-      <div class="contact-info">
-        <a href="mailto:contact.ivantsian@icloud.com">Email</a>
-        <a href="https://github.com/IvanTsian" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/cheng-ivan-qian" target="_blank">LinkedIn</a>
+      <div class="resume-header-content">
+        <h1>Ivan/Cheng Qian</h1>
+        <p class="resume-summary">
+          Computer Science Master's candidate with practical experience in FMCG smart manufacturing, industrial IoT, compliance IT, and process automation. Currently supporting ThingWorx-based digitalization initiatives at P&amp;G's Rakona manufacturing plant, focusing on production visibility, sensor-data dashboards, and operational monitoring. Previous experience across HSBC, Apple, and Huawei, with strengths in stakeholder communication, workflow digitalization, and multilingual collaboration.
+        </p>
+        <div class="contact-info">
+          <a href="mailto:contact.ivantsian@icloud.com">Email</a>
+          <a href="https://github.com/IvanTsian" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/cheng-ivan-qian" target="_blank">LinkedIn</a>
+        </div>
       </div>
+      <img src="assets/img/resume_photo.jpg" alt="Ivan/Cheng Qian portrait" class="resume-photo">
     </div>
-    <!-- 分割线，带AOS动画 -->
+
     <div data-aos="fade-up">
       <hr class="section-divider">
     </div>
-    <!-- 學術经历标题 -->
-    <div class ="center-box" data-aos="fade-up">
-      <h2>Academic Experience:</h2>
-    </div>
 
-    <!-- 教育经历卡片 -->
-    <div class="resume-card" data-aos="fade-up">
-      <div class="resume-card-logo">
-        <img src="assets/img/HU_Siegel-Kombi_Schwarz.png" alt="Humboldt University Berlin">
-      </div>
-      <div class="resume-card-content">
-        <div class="resume-card-date">Apr.2023 - Oct.2026</div>
-        <div class="resume-card-title">M.Sc. Computer Science</div>
-        <div class="resume-card-subtitle">Humboldt University of Berlin</div>
-        <div class="resume-card-desc">
-          Currently pursuing Master's degree with focus on Human-Computer/AI Interaction, Process Science and Software Engineering.
+    <section class="resume-section" data-aos="fade-up">
+      <h2>Education</h2>
+      <div class="resume-card has-logo">
+        <span class="resume-card-date">Apr. 2023 - Oct. 2026</span>
+        <div class="resume-card-logo">
+          <img src="assets/img/HU_Siegel-Kombi_Schwarz.png" alt="Humboldt University Berlin">
+        </div>
+        <div class="resume-card-content">
+          <div class="resume-card-meta">
+            <span>Berlin, Germany</span>
+          </div>
+          <div class="resume-card-title">M.Sc. in Computer Science</div>
+          <div class="resume-card-subtitle">Humboldt University of Berlin · US News World Ranking #47, #1 in Germany</div>
+          <div class="resume-card-desc">
+            <ul>
+              <li>Focus: Industrial Digitalization, Process Science, Supply Chain 3.0, Data Science.</li>
+              <li>Relevant coursework: Business Process Automation, Reliable System, Visual Analytics, AI in Chemistry, Psychology in Informatics, Cognitive Robotics, Process Mining.</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="resume-card" data-aos="fade-up">
-      <div class="resume-card-logo">
-        <img src="assets/img/uzh-logo-black.png" alt="University of Zurich">
-      </div>
-      <div class="resume-card-content">
-        <div class="resume-card-date">2024/25</div>
-        <div class="resume-card-title">Exchange Semester</div>
-        <div class="resume-card-subtitle">University of Zurich</div>
-        <div class="resume-card-desc">
-          Exchange program focusing on Blockchain Technology and Data Science.
-        </div>
-      </div>
-    </div>
-    <div class="resume-card" data-aos="fade-up">
-      <div class="resume-card-logo">
-        <img src="assets/img/The_Logo_of_GDUT.png" alt="Guangdong University of Technology">
-      </div>
-      <div class="resume-card-content">
-        <div class="resume-card-date">Sep.2016 - Jul.2020</div>
-        <div class="resume-card-title">B.Sc. Computer Science</div>
-        <div class="resume-card-subtitle">Guangdong University of Technology</div>
-        <div class="resume-card-desc">
-          Bachelor's degree with specialization in software development, AR-VR application and big data. 
-          Active in programming competitions and tech communities.
-        </div>
-      </div>
-    </div>
 
-   <!-- 工作经历标题 -->
-    <div class ="center-box" data-aos="fade-up">
-      <h2>Work Experience:</h2>
-    </div>
-            <!-- 宝洁工作经历卡片 -->
-       <div class="resume-card" data-aos="fade-up">
-      <div class="resume-card-logo">
-          <img src="assets/img/P&G_Logo.png" alt="Procter & Gamble">
-      </div>
-      <div class="resume-card-content">
-        <div class="resume-card-date">May.2026 - Present</div>
-        <div class="resume-card-title">IIoT / Smart Manufacturing IT Intern </div>
-        <div class="resume-card-subtitle">Procter & Gamble Rakona, Czech Republic</div>
-        <div class="resume-card-desc">
-          • Supporting the digitalization of 13 FMCG production lines by developing ThingWorx-based industrial applications to replace manual tracking with real-time production visibility.
-          <br>• Developing JavaScript-based dashboard components integrating high-frequency sensor data from PRD manufacturing databases, enabling plant teams to monitor bottlenecks and production performance.
+      <div class="resume-card has-logo">
+        <span class="resume-card-date">Sep. 2024 - Feb. 2025</span>
+        <div class="resume-card-logo">
+          <img src="assets/img/uzh-logo-black.png" alt="University of Zurich">
+        </div>
+        <div class="resume-card-content">
+          <div class="resume-card-meta">
+            <span>Zurich, Switzerland</span>
+          </div>
+          <div class="resume-card-title">Exchange Student</div>
+          <div class="resume-card-subtitle">University of Zurich</div>
+          <div class="resume-card-desc">
+            <ul>
+              <li>Selected as the sole faculty-nominated exchange student for the academic year.</li>
+              <li>Focus: Data Science and Blockchain Technology.</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div> 
-        <!-- 汇丰工作经历卡片 -->
-       <div class="resume-card" data-aos="fade-up">
-      <div class="resume-card-logo">
+
+      <div class="resume-card has-logo">
+        <span class="resume-card-date">Sep. 2016 - Jul. 2020</span>
+        <div class="resume-card-logo">
+          <img src="assets/img/The_Logo_of_GDUT.png" alt="Guangdong University of Technology">
+        </div>
+        <div class="resume-card-content">
+          <div class="resume-card-meta">
+            <span>Guangzhou, China</span>
+          </div>
+          <div class="resume-card-title">B.Eng. in Computer Science and Technology</div>
+          <div class="resume-card-subtitle">Guangdong University of Technology</div>
+          <div class="resume-card-desc">Focus: Big Data, Software Engineering, Mobile Development.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-section" data-aos="fade-up">
+      <h2>Professional Experience</h2>
+      <div class="resume-card has-logo">
+        <span class="resume-card-date">May 2026 - Present</span>
+        <div class="resume-card-logo">
+          <img src="assets/img/P%26G_Logo.png" alt="Procter &amp; Gamble">
+        </div>
+        <div class="resume-card-content">
+          <div class="resume-card-meta">
+            <span>Rakovnik, Czech Republic</span>
+          </div>
+          <div class="resume-card-title">IIoT / Smart Manufacturing IT Intern</div>
+          <div class="resume-card-subtitle">Procter &amp; Gamble (P&amp;G)</div>
+          <div class="resume-card-desc">
+            <ul>
+              <li>Supporting the digitalization of 13 FMCG production lines by developing ThingWorx-based industrial applications to replace manual tracking with real-time production visibility.</li>
+              <li>Developing JavaScript-based dashboard components integrating high-frequency sensor data from PRD manufacturing databases, enabling plant teams to monitor bottlenecks and production performance.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-card has-logo">
+        <span class="resume-card-date">Oct. 2025 - Apr. 2026</span>
+        <div class="resume-card-logo">
           <img src="assets/img/HSBC_logo.png" alt="HSBC">
-      </div>
-      <div class="resume-card-content">
-        <div class="resume-card-date">Oct.2025 - Apr.2026</div>
-        <div class="resume-card-title">Compliance IT & Process Automation Intern</div>
-        <div class="resume-card-subtitle">HSBC, Guangzhou</div>
-        <div class="resume-card-desc">
-          • Supported internal compliance-system development aligned with PBOC regulatory requirements by modeling workflows in BPMN.
-          <br>• Introduced Playwright-based automated testing solutions, significantly cutting manual regression testing effort by approximately 70%.
+        </div>
+        <div class="resume-card-content">
+          <div class="resume-card-meta">
+            <span>Guangzhou, China</span>
+          </div>
+          <div class="resume-card-title">Compliance IT &amp; Process Automation Intern</div>
+          <div class="resume-card-subtitle">HSBC</div>
+          <div class="resume-card-desc">
+            <ul>
+              <li>Supported internal compliance-system development aligned with PBOC regulatory requirements by modeling workflows in BPMN.</li>
+              <li>Introduced Playwright-based automated testing solutions, significantly cutting manual regression testing effort by approximately 70%.</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div> 
-    <!-- 华为工作经历卡片 -->
-       <div class="resume-card" data-aos="fade-up">
-      <div class="resume-card-logo">
-        <img src="assets/img/horizontal-official-huawei-logo-7017516947914874kblwp2wky.png" alt="Huawei">
-      </div>
-      <div class="resume-card-content">
-        <div class="resume-card-date">Sep.2023 - Jun.2024</div>
-        <div class="resume-card-title">IT/Business Consulting (Working Student)</div>
-        <div class="resume-card-subtitle">Huawei Flagship Store Berlin</div>
-        <div class="resume-card-desc">
-          • Delivered exceptional customer service and contributed to a strong, tech-focused brand image in a flagship environment
-          <br>• Consistently outperformed full-time staﬀ in sales performance; recognized multiple times as top sales performer
-          <br>• Identified and developed B2B business opportunities by aligning technical product knowledge with client needs
-          <br>• Acted as a product specialist, communicating complex features of consumer electronics to a diverse customer base
-        </div>
-      </div>
-    </div>  
-        <!-- 苹果工作经历卡片 -->
-       <div class="resume-card" data-aos="fade-up">
-      <div class="resume-card-logo">
-          <img src="assets/img/apple-logo.webp" alt="Apple">
-      </div>
-      <div class="resume-card-content">
-        <div class="resume-card-date">Aug.2021 - Feb.2022</div>
-        <div class="resume-card-title">IT Specialist (Fulltime)</div>
-        <div class="resume-card-subtitle">Apple Store, Guangzhou</div>
-        <div class="resume-card-desc">
-          • Ranked #1 in team for customer satisfaction (Net Promoter Score)
-          <br>• Generated the highest number of qualified business leads in the team, contributing significantly to client portfolio growth
-          <br>• Advised customers on personalized technical solutions across Apple’s product ecosystem, including troubleshooting, configuration, and integration
-          <br>• Acted as a bridge between technical knowledge and user needs, delivering both high-level consultations and hands-on support
-        </div>
-      </div>
-    </div>  
-  </div>
 
+      <div class="resume-card has-logo">
+        <span class="resume-card-date">Sep. 2023 - Jun. 2024</span>
+        <div class="resume-card-logo">
+          <img src="assets/img/horizontal-official-huawei-logo-7017516947914874kblwp2wky.png" alt="Huawei">
+        </div>
+        <div class="resume-card-content">
+          <div class="resume-card-meta">
+            <span>Berlin, Germany</span>
+          </div>
+          <div class="resume-card-title">Technical Consultant (Working Student)</div>
+          <div class="resume-card-subtitle">Huawei Germany Flagship Store Berlin</div>
+          <div class="resume-card-desc">
+            <ul>
+              <li>Conducted cross-cultural technical consulting, gathering user requirements and troubleshooting complex device-to-cloud ecosystem issues.</li>
+              <li>Recognized as a top-performing student consultant through strong stakeholder communication and engagement.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-card has-logo">
+        <span class="resume-card-date">Aug. 2021 - Feb. 2022</span>
+        <div class="resume-card-logo">
+          <img src="assets/img/apple-logo.webp" alt="Apple">
+        </div>
+        <div class="resume-card-content">
+          <div class="resume-card-meta">
+            <span>Guangzhou, China</span>
+          </div>
+          <div class="resume-card-title">Consulting Specialist</div>
+          <div class="resume-card-subtitle">Apple Inc.</div>
+          <div class="resume-card-desc">
+            <ul>
+              <li>Maintained team #1 NPS by translating complex technical architectures into user-friendly digital strategies and driving the adoption of business solutions.</li>
+              <li>Identified and generated the most number of high-quality business leads while supporting users across Apple ecosystem integration.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-section" data-aos="fade-up">
+      <h2>Leadership &amp; Activities</h2>
+      <div class="resume-card">
+        <div class="resume-card-content">
+          <div class="resume-card-meta">
+            <span>Sri Lanka; China</span>
+            <span class="resume-card-date">Jul. 2017 - Aug. 2017</span>
+          </div>
+          <div class="resume-card-title">Global Volunteer &amp; Local Team Leader</div>
+          <div class="resume-card-subtitle">AIESEC - Global Volunteer</div>
+          <div class="resume-card-desc">
+            <ul>
+              <li>Directed multicultural volunteer teams to execute social impact initiatives within the Guangzhou community.</li>
+              <li>Volunteered in "I Respect You 5.0" project in Colombo, Sri Lanka, participating in events aligned with the 17 UN Sustainable Development Goals.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-card">
+        <div class="resume-card-content">
+          <div class="resume-card-meta">
+            <span>Guangzhou, China</span>
+            <span class="resume-card-date">Oct. 2017 - Sep. 2019</span>
+          </div>
+          <div class="resume-card-title">Founder &amp; Community Organizer</div>
+          <div class="resume-card-subtitle">iOS Club - Co-Founder</div>
+          <div class="resume-card-desc">Established and scaled a university tech community to 50+ members, fostering a culture of iOS mobile development and UI design.</div>
+        </div>
+      </div>
+
+      <div class="resume-card">
+        <div class="resume-card-content">
+          <div class="resume-card-meta">
+            <span>Guangzhou, China</span>
+            <span class="resume-card-date">Oct. 2017 - Oct. 2018</span>
+          </div>
+          <div class="resume-card-title">Oral English Department Leader</div>
+          <div class="resume-card-subtitle">English Club</div>
+          <div class="resume-card-desc">Designed and facilitated daily English speaking workshops, enhancing the cross-cultural communication skills of 200+ members.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-section" data-aos="fade-up">
+      <h2>Technical &amp; Business Skills</h2>
+      <div class="skills-grid">
+        <div class="resume-card">
+          <div class="resume-card-title">Industrial Digitalization</div>
+          <ul class="resume-skill-list">
+            <li>ThingWorx, PTC, Industrial IoT</li>
+            <li>Process Automation, BPMN</li>
+          </ul>
+        </div>
+        <div class="resume-card">
+          <div class="resume-card-title">Programming Stacks &amp; Methodologies</div>
+          <ul class="resume-skill-list">
+            <li>Java, JavaScript, Python, SQL, Swift</li>
+            <li>ERP Systems, Playwright, LLM Development</li>
+          </ul>
+        </div>
+        <div class="resume-card">
+          <div class="resume-card-title">Professional Skills</div>
+          <ul class="resume-skill-list">
+            <li>Cross-functional Collaboration, Stakeholder Communication</li>
+            <li>Multicultural Teamwork, Business Development, Agile Development Methodology</li>
+          </ul>
+        </div>
+        <div class="resume-card">
+          <div class="resume-card-title">Languages &amp; Hobbies</div>
+          <ul class="resume-skill-list">
+            <li>Mandarin (Native), English (C1/C2, DAAD certified), German (C1, DSH-2 certified), Cantonese, Spanish (Basic)</li>
+            <li>Volunteering, Volleyball, Hiking, Photography, Boxing, collecting postcards and city mug cups around the world</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
 
 
 
