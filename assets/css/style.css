@@ -249,6 +249,10 @@ footer {
   .hero h1 {
     font-size: 2.25rem; /* 小屏时标题变小 */
   }
+  .home-page {
+    background-size: contain;
+    background-position: center top;
+  }
   .home-page .hero {
     min-height: 58vh;
     padding: 11vh 1.4rem 8vh;
