@@ -250,8 +250,11 @@ footer {
     font-size: 2.25rem; /* 小屏时标题变小 */
   }
   .home-page {
-    background-size: contain;
-    background-position: center top;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.68)),
+      url("../img/main_page_pic_mobile.jpg");
+    background-size: cover;
+    background-position: center;
   }
   .home-page .hero {
     min-height: 58vh;
