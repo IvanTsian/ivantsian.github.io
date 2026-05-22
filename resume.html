@@ -84,13 +84,14 @@
       display: flex;
       flex-direction: row;
       align-items: flex-start;
-      min-height: 160px;
+      min-height: 190px;
       overflow: hidden;
     }
     /* 卡片左侧内容 */
     .resume-card-content {
       flex: 1;
       min-width: 0;
+      padding-right: 11rem;
     }
     .resume-card-date {
       font-size: 1.1rem;
@@ -121,24 +122,22 @@
     .resume-card-logo {
       position: absolute;
       top: 1.5rem;
-      right: 6rem;
-      width: 72px;
-      height: 72px;
+      right: 2.2rem;
+      width: 148px;
+      height: 148px;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 2;
     }
     .resume-card-logo img {
-      max-width: 180px;
-      max-height: 180px;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
       display: block;
     }
-      .resume-card-logo img.pg-logo {
-        max-width: 56px;
-        max-height: 56px;
-      }
     @media (max-width: 600px) {
       .resume-header .avatar {
         width: 80px;
@@ -151,15 +150,16 @@
       .resume-card-logo {
         position: static;
         margin: 0 auto 1rem auto;
-        width: 48px;
-        height: 48px;
+        width: 96px;
+        height: 96px;
       }
       .resume-card-logo img {
-        max-width: 120px;
-        max-height: 120px;
+        width: 100%;
+        height: 100%;
       }
       .resume-card-content {
         margin-left: 0;
+        padding-right: 0;
       }
     }
   </style>
@@ -251,7 +251,7 @@
             <!-- 宝洁工作经历卡片 -->
        <div class="resume-card" data-aos="fade-up">
       <div class="resume-card-logo">
-        <img class="pg-logo" src="assets/img/Procter_&_Gamble_logo.png" alt="Procter & Gamble">
+          <img src="assets/img/P&G_Logo.png" alt="Procter & Gamble">
       </div>
       <div class="resume-card-content">
         <div class="resume-card-date">May.2026 - Present</div>
@@ -266,7 +266,7 @@
         <!-- 汇丰工作经历卡片 -->
        <div class="resume-card" data-aos="fade-up">
       <div class="resume-card-logo">
-        <img src="assets/img/HSBC_logo.png" alt="HSBC">
+          <img src="assets/img/HSBC_logo.png" alt="HSBC">
       </div>
       <div class="resume-card-content">
         <div class="resume-card-date">Oct.2025 - Apr.2026</div>
@@ -298,7 +298,7 @@
         <!-- 苹果工作经历卡片 -->
        <div class="resume-card" data-aos="fade-up">
       <div class="resume-card-logo">
-        <img src="assets/img/apple-logo.webp" alt="Apple">
+          <img src="assets/img/apple-logo.webp" alt="Apple">
       </div>
       <div class="resume-card-content">
         <div class="resume-card-date">Aug.2021 - Feb.2022</div>

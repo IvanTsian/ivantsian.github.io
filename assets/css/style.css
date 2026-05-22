@@ -9,6 +9,16 @@ body {
   line-height: 1.6; /* 设置行高，提升可读性 */
 }
 
+.home-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.68)),
+    url("../img/avatar.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 header {
   position: sticky; /* 让header在滚动时固定在顶部 */
   top: 0; /* 距离顶部为0 */
@@ -20,7 +30,7 @@ header {
 .navbar {
   max-width: 960px; /* 最大宽度960px */
   margin: 0 auto; /* 居中显示 */
-  padding: 1rem 2rem; /* 上下1rem，左右2rem的内边距 */
+  padding: 0.45rem 2rem; /* 上下0.45rem，左右2rem的内边距 */
   display: flex; /* 使用flex布局 */
   justify-content: space-between; /* 两端对齐 */
   align-items: center; /* 垂直居中 */
@@ -55,16 +65,41 @@ header {
   text-align: center; /* 内容居中 */
 }
 
+.home-page .hero {
+  max-width: 960px;
+  min-height: 62vh;
+  margin: 0 auto;
+  padding: 14vh 2rem 10vh;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .hero h1 {
   font-size: 3rem; /* 标题字体大 */
   font-weight: 600; /* 加粗 */
   margin-bottom: 1rem; /* 下边距 */
 }
 
+.home-page .hero h1 {
+  max-width: 680px;
+  margin: 0 0 1rem;
+  font-size: clamp(2.6rem, 6.2vw, 4.9rem);
+  line-height: 1.05;
+}
+
 .hero p {
   font-size: 1.2rem; /* 段落字体稍大 */
   margin-bottom: 2rem; /* 下边距 */
   color: #444; /* 字体颜色更浅 */
+}
+
+.home-page .hero p {
+  max-width: 600px;
+  margin: 0;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  color: #252525;
 }
 
 .btn {
@@ -202,12 +237,26 @@ footer {
   border-top: 1px solid #eee; /* 顶部边线 */
 }
 
+.home-page footer {
+  background: linear-gradient(
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.58) 58%,
+    #ffffff 100%
+  );
+}
+
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.25rem; /* 小屏时标题变小 */
+  }
+  .home-page .hero {
+    min-height: 58vh;
+    padding: 11vh 1.4rem 8vh;
+  }
+  .home-page .hero h1 {
+    font-size: clamp(2.25rem, 10vw, 3.45rem);
   }
   .nav-links {
     gap: 1rem; /* 小屏时导航间距变小 */
   }
 }
-
