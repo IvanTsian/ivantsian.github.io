@@ -282,7 +282,8 @@ footer {
   }
   .home-page .hero {
     min-height: 58vh;
-    padding: 11vh 1.4rem 8vh;
+    padding: 2vh 1.4rem 8vh;
+    justify-content: flex-start;
   }
   .home-page .hero h1 {
     font-size: clamp(2.25rem, 10vw, 3.45rem);
